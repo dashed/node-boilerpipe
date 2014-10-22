@@ -1,7 +1,7 @@
 async = require 'async'
 java = require 'java'
 
-java.classpath.push "#{__dirname}/../jar/nekohtml-1.9.13.jar"
+java.classpath.push "#{__dirname}/../jar/nekohtml-1.9.21.jar"
 java.classpath.push "#{__dirname}/../jar/xerces-2.9.1.jar"
 java.classpath.push "#{__dirname}/../jar/boilerpipe-core-1.2.0-xissy.jar"
 
@@ -92,7 +92,7 @@ class Boilerpipe
           (saxInput, callback) =>
             saxInput.getTextDocument callback
         ]
-        , 
+        ,
           callback
     ]
     ,
@@ -110,7 +110,7 @@ class Boilerpipe
 
     if callback?
       @process callback
-      
+
     @
 
 
@@ -142,7 +142,7 @@ class Boilerpipe
   getHtml: (callback) ->
     @checkIsProcessed (err) =>
       return callback err  if err?
-    
+
       async.waterfall [
         (callback) =>
           HTMLHighlighter.newExtractingInstance callback
